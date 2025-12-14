@@ -58,7 +58,7 @@ public class KartEngine : MonoBehaviour
     public float Simulate(float throttleInput, float forwardSpeed, float deltaTime)
     {
         // Сглаживание газа
-        float targetThrottle = Mathf.Clamp01(throttleInput);
+        float targetThrottle = Mathf.Clamp(throttleInput, -1f, 1f);
         SmoothedThrottle = Mathf.MoveTowards(SmoothedThrottle, targetThrottle, _throttleResponse * deltaTime);
 
         // НОВОЕ: Расчет целевого RPM от скорости

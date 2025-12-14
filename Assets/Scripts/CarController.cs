@@ -103,6 +103,9 @@ public class KartController : MonoBehaviour
         _steepInput = Mathf.Clamp(move.x, -1, 1);
         _throttleInput = Mathf.Clamp(move.y, -1, 1);
 
+        if (Input.GetKey(KeyCode.S))
+            _throttleInput = -1f;
+
         // Ручник — лучше через Input System, но пока через Space
         _handbrakePressed = Input.GetKey(KeyCode.Space);
 
